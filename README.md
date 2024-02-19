@@ -1,6 +1,6 @@
 # Aplikasi Antrian Dynamic ElectronJs
 
-Aplikasi Antrian merupakan perkembangan dari versi sebelumnya [aplikasi antrian general static](doc:https://github.com/aderahman007/aplikasi-antrian-general-static) yang digunakan untuk mengelola antrian pengunjung pada suatu perusahaan atau instansi. Aplikasi antrian dapat digunakan sebagai sarana untuk mencapai kinerja efektif dan efisien bagi perusahaan atau instansi dalam melayani pengunjung.
+Aplikasi Antrian merupakan perkembangan dari versi sebelumnya [aplikasi antrian general static](https://github.com/aderahman007/aplikasi-antrian-general-static) yang digunakan untuk mengelola antrian pengunjung pada suatu perusahaan atau instansi. Aplikasi antrian dapat digunakan sebagai sarana untuk mencapai kinerja efektif dan efisien bagi perusahaan atau instansi dalam melayani pengunjung.
 
 **Aplikasi ini dibangun dengan :**
 
