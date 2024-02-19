@@ -66,4 +66,7 @@ Request Data
 }
 ```
 
+# Configure Driver Printer ElectronJs
+Driver printer electronJs dapat merujuk pada [driver printer electronjs](https://github.com/aderahman007/driver-printer-electronjs)
+
 #### Script MIT Lisence 
