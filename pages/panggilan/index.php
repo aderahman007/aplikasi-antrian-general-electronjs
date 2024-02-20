@@ -1,4 +1,4 @@
-<?php 
+<?php
 $css = 'css.php';
 $loket = json_decode($data['list_loket'], true);
 $list = array();
@@ -8,12 +8,12 @@ if (count($loket) > 0) {
         $list[$key_l]['nama_loket'] = $val_l['nama_loket'];
         $list[$key_l]['handle_type_antrian'] = json_decode($val_l['handle_type_antrian']);
     }
-} 
+}
 ?>
 <main class="flex-shrink-0">
     <div id="triggerClickTable"></div>
     <div class="container pt-4">
-        <div class="d-flex flex-column flex-md-row px-4 py-1 mb-4 bg-white rounded-2 shadow-sm">
+        <div class="d-flex flex-column flex-md-row px-3 py-2 mb-4 bg-white rounded-1 shadow-sm border border-success">
             <!-- judul halaman -->
             <div class="d-flex align-items-center me-md-auto">
                 <i class="bi-mic-fill text-success me-3 fs-3"></i>
@@ -24,7 +24,7 @@ if (count($loket) > 0) {
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/"><i class="bi-house-fill text-success"></i></a></li>
-                        <li class="breadcrumb-item" aria-current="page">Antrian</li>
+                        <li class="breadcrumb-item" aria-current="page">Panggilan Antrian</li>
                     </ol>
                 </nav>
             </div>

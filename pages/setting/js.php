@@ -114,6 +114,25 @@
         });
     });
 
+    $(document).on("click", "#reset_antrian", function(e) {
+        let message = "Apakah anda yakin ingin mereset antrian?";
+        if (confirm(message) == true) {
+            $.ajax({
+                url: 'pages/setting/action.php',
+                method: 'POST',
+                data: {
+                    type: 'reset_antrian'
+                },
+                async: false,
+                cache: false,
+                dataType: 'json',
+                success: function(result) {
+                    alert(result.message);
+                }
+            });
+        }
+    });
+
     $(document).on("click", "#logout", function(e) {
         $.ajax({
             type: 'POST',

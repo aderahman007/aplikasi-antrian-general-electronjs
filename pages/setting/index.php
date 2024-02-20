@@ -1,6 +1,6 @@
 <main class="flex-shrink-0">
     <div class="container pt-4">
-        <div class="d-flex flex-column flex-md-row px-4 py-3 mb-4 bg-white rounded-2 shadow-sm">
+        <div class="d-flex flex-column flex-md-row px-3 py-2 mb-4 bg-white rounded-1 shadow-sm border border-success">
             <!-- judul halaman -->
             <div class="d-flex align-items-center me-md-auto">
                 <i class="bi-gear-fill text-success me-3 fs-3"></i>
@@ -11,7 +11,7 @@
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/"><i class="bi-house-fill text-success"></i></a></li>
-                        <li class="breadcrumb-item" aria-current="page">Setting</li>
+                        <li class="breadcrumb-item" aria-current="page">Setting Antrian</li>
                     </ol>
                 </nav>
             </div>
@@ -234,7 +234,7 @@
                                         <input type="text" class="form-control" name="ip_komputer_printer" value="<?= (!empty($printer['ip_komputer_printer'])) ? $printer['ip_komputer_printer'] : ''; ?>" placeholder="Ip Komputer Printer" required>
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Port Komputer Printer</label>
+                                        <label class="form-label">Port Komputer Printer <sub class="text-info">Default Port 3000</sub></label>
                                         <input type="text" class="form-control" name="port_komputer_printer" value="<?= (!empty($printer['port_komputer_printer'])) ? $printer['port_komputer_printer'] : ''; ?>" placeholder="Port Komputer Printer" required>
                                     </div>
                                 </div>
@@ -295,8 +295,9 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center gap-2 mt-4">
-                            <button type="submit" class="btn btn-success btn-lg"><i class="bi-save-fill text-white me-3"></i> Simpan</button>
-                            <button type="button" id="logout" class="btn btn-danger btn-lg"><i class="bi-box-arrow-right text-white me-3"></i> Logout</button>
+                            <button type="submit" class="btn btn-success"><i class="bi-save-fill text-white"></i> Simpan</button>
+                            <button type="button" id="reset_antrian" class="btn btn-secondary"><i class="bi-arrow-clockwise text-white"></i> Reset Antrian</button>
+                            <button type="button" id="logout" class="btn btn-danger"><i class="bi-box-arrow-right text-white"></i> Logout</button>
                         </div>
                     </div>
                 </div>

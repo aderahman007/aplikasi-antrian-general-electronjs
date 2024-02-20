@@ -84,5 +84,24 @@ if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == 'POST' |
                 ]);
             }
         }
+
+        if ($_POST['type'] == 'get_list_type_antrian') {
+            $querySetting = $action->getSetting();
+            // ambil jumlah baris data hasil querySetting
+            $rows = mysqli_num_rows($querySetting);
+
+            if ($rows <> 0) {
+                $data = mysqli_fetch_assoc($querySetting);
+            } else {
+                $data = [];
+            }
+
+            // tampilkan data
+            echo json_encode([
+                'success' => true,
+                'message' => 'Success',
+                'data' => (isset($data['list_type_antrian'])) ? json_decode($data['list_type_antrian']) : []
+            ]);
+        }
     }
 }

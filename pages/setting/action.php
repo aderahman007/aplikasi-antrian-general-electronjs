@@ -2,6 +2,8 @@
 require_once "../../config/query.php";
 
 if (isset($_POST['type'])) {
+    $action = new config\query;
+
     if ($_POST['type'] == 'save') {
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) {
 
@@ -98,9 +100,7 @@ if (isset($_POST['type'])) {
                     }
                 }
 
-
-                $query = new config\query;
-                $save = $query->saveSetting($id, $nama_instansi, $logo, $alamat, $telpon, $email, $running_text, $youtube_id, $list_loket, $list_type_antrian, $warna_primary, $warna_secondary, $warna_accent, $warna_background, $warna_text, $printer);
+                $save = $action->saveSetting($id, $nama_instansi, $logo, $alamat, $telpon, $email, $running_text, $youtube_id, $list_loket, $list_type_antrian, $warna_primary, $warna_secondary, $warna_accent, $warna_background, $warna_text, $printer);
 
                 if ($save) {
                     echo json_encode([
@@ -114,6 +114,22 @@ if (isset($_POST['type'])) {
                     ]);
                 }
             }
+        }
+    }
+
+    if ($_POST['type'] == 'reset_antrian') {
+        $query = $action->resetAntrian();
+
+        if ($query) {
+            echo json_encode([
+                'success' => true,
+                'message' => 'Antrian berhasil direset'
+            ]);
+        } else {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Oppps, tidak ada antrian yang direset!'
+            ]);
         }
     }
 

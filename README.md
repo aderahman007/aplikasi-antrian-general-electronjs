@@ -41,24 +41,42 @@ Halaman Setting Aplikasi Antrian untuk memudahkan dalam configurasi aplikasi sep
 - Composer
 
 ## Configurasi
+
 - Buat database dan import database yang ada di directory database/aplikasi_antrian_v3.sql
 - Jalankan **composer install**
 - Copy dan Paste file env.copy.php kemudian rename menjadi env.php dan ubah konfigurasi sesuai dengan konfigurasi server pada file
 - Akses aplikasi antrian
 - Sesuaikan konfigurasi pada menu setting antrian
 - Login default static Setting Aplikasi Antrian
-    Username : superadmin
-    Password : superadmin@123
+  Username : superadmin
+  Password : superadmin@123
 
 ### RestAPi Get Antrian Cross Platform
-Jika proses ambil antrian include pada aplikasi lain seperti anjungan, maka dapat merujuk pada url berikut dengan method
+
+Jika proses ambil antrian include pada aplikasi lain seperti anjungan, maka dapat merujuk pada url berikut dengan method POST
+
+#### List type antrian
 
 Url
 ```
 <ip_server>/pages/nomor/action.php
 ```
 
-Request Data
+Request Body
+```
+{
+    type: 'get_list_type_antrian'
+}
+```
+
+#### Ambil antrian
+
+Url
+```
+<ip_server>/pages/nomor/action.php
+```
+
+Request Body
 ```
 {
     type: 'create_antrian',
@@ -67,6 +85,12 @@ Request Data
 ```
 
 # Configure Driver Printer ElectronJs
+
 Driver printer electronJs dapat merujuk pada [driver printer electronjs](https://github.com/aderahman007/driver-printer-electronjs)
 
-#### Script MIT Lisence 
+# Support me
+
+Donation to give me a Gift   
+Saweria : https://saweria.co/aderahman007
+
+#### Script MIT Lisence

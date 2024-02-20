@@ -65,7 +65,7 @@
 
         // Table panggilan
         let numOfCols = (typeAntrian.length <= 4) ? typeAntrian.length : 4;
-        $("#table-panggilan").addClass("row-cols-"+numOfCols);
+        $("#table-panggilan").addClass("row-cols-" + numOfCols);
         let tablePanggilanHtml = ``;
         typeAntrian.forEach(function(element, index) {
             let type = element.toLowerCase();
@@ -73,7 +73,7 @@
             tablePanggilanHtml += `<div class="col mb-4">
                 <div class="card border-0 shadow-sm">
                     <div class="card-header text-center fw-bold">
-                        <h4>` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + `</h4>
+                        <h4 class="fw-bold">` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + `</h4>
                     </div>
                     <div class="card-body p-4">
                         <div class="table-responsive">

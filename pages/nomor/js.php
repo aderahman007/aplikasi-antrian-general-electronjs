@@ -29,7 +29,8 @@
         })
 
         $(document).delegate("a[id^='insert']", "click", function(e) {
-            let code_antrian = $(this).data('code_antrian');
+            var tombolAmbil = $(this);
+            let code_antrian = tombolAmbil.data('code_antrian');
 
             $.ajax({
                 url: 'pages/nomor/action.php',
@@ -39,6 +40,13 @@
                     code_antrian: code_antrian
                 },
                 dataType: 'json',
+                beforeSend: function(data) {
+                    tombolAmbil.addClass("disabled");
+                    tombolAmbil.html(`
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        <small> Loading...</small>
+                    `);
+                },
                 success: function(result) {
                     if (result.success == true) {
                         $.ajax({
@@ -81,6 +89,10 @@
                             }
                         });
                     }
+                },
+                complete: function(data) {
+                    tombolAmbil.removeClass("disabled");
+                    tombolAmbil.html(`<i class="bi-person-plus fs-4 me-2"></i> Ambil`);
                 }
             });
         });

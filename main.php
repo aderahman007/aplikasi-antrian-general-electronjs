@@ -14,7 +14,7 @@
         }
         ?>
         <!-- tampilkan pesan selamat datang -->
-        <div class="alert alert-light mb-3 mt-3" role="alert">
+        <div class="alert alert-light border border-success mb-3 mt-3" role="alert">
             <div class="text-center">
                 <img src="<?= $data['logo'] && file_exists('assets/img/' . $data['logo']) ? 'assets/img/' . $data['logo'] : 'assets/img/default.png' ?>" alt="Logo" width="60px" class="">
                 <h6 class="mt-2"><?= $data['nama_instansi'] ? $data['nama_instansi'] : ''; ?></h6>
@@ -24,10 +24,10 @@
             </div>
         </div>
 
-        <div class="row gx-3">
+        <div class="row gx-3 text-center">
             <!-- link halaman nomor antrian -->
             <div class="col-sm-6 mb-3">
-                <div class="card border-0 shadow-sm">
+                <div class="card border border-success shadow-sm">
                     <div class="card-body p-3">
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-people"></i>
@@ -42,7 +42,7 @@
             </div>
             <!-- link halaman panggilan antrian -->
             <div class="col-sm-6 mb-3">
-                <div class="card border-0 shadow-sm">
+                <div class="card border border-success shadow-sm">
                     <div class="card-body p-3">
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-mic"></i>
@@ -57,10 +57,10 @@
             </div>
         </div>
 
-        <div class="row gx-3">
+        <div class="row gx-3 text-center">
             <!-- link halaman monitor antrian -->
             <div class="col-sm-6 mb-3">
-                <div class="card border-0 shadow-sm">
+                <div class="card border border-success shadow-sm">
                     <div class="card-body p-3">
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-display"></i>
@@ -75,7 +75,7 @@
             </div>
             <!-- link halaman setting antrian -->
             <div class="col-sm-6 mb-3">
-                <div class="card border-0 shadow-sm">
+                <div class="card border border-success shadow-sm">
                     <div class="card-body p-3">
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-gear"></i>

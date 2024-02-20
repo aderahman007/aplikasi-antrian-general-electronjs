@@ -86,5 +86,10 @@ class query extends database{
         mysqli_query($this->mysqli, "DELETE FROM queue_penggilan_antrian WHERE id='$id'") or die('Ada kesalahan pada query delete data : ' . mysqli_error($this->mysqli));
         return mysqli_affected_rows($this->mysqli);
     }
+
+    public function resetAntrian(){
+        mysqli_query($this->mysqli, "DELETE FROM queue_antrian_admisi WHERE tanggal='$this->tanggal'") or die('Ada kesalahan pada query delete data : ' . mysqli_error($this->mysqli));
+        return mysqli_affected_rows($this->mysqli);
+    }
 }
 ?>
