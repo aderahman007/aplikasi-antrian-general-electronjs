@@ -47,11 +47,11 @@ Halaman Setting Aplikasi Antrian untuk memudahkan dalam configurasi aplikasi sep
 - Copy dan Paste file env.copy.php kemudian rename menjadi env.php dan ubah konfigurasi sesuai dengan konfigurasi server pada file
 - Akses aplikasi antrian
 - Sesuaikan konfigurasi pada menu setting antrian
-- Login default static Setting Aplikasi Antrian
-  Username : superadmin
-  Password : superadmin@123
+- Login default static Setting Aplikasi Antrian  
+  Username : superadmin  
+  Password : superadmin@123  
 
-### RestAPi Get Antrian Cross Platform
+### RestAPI Get Antrian Cross Platform
 
 Jika proses ambil antrian include pada aplikasi lain seperti anjungan, maka dapat merujuk pada url berikut dengan method POST
 
@@ -83,6 +83,7 @@ Request Body
     code_antrian: <code_antrian>
 }
 ```
+Code antrian di dapat dari endpoint #List type antrian
 
 # Configure Driver Printer ElectronJs
 
