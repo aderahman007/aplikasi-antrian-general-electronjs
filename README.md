@@ -83,7 +83,7 @@ Request Body
     code_antrian: <code_antrian>
 }
 ```
-Code antrian di dapat dari endpoint #List type antrian
+code_antrian di dapat dari endpoint #List type antrian
 
 # Configure Driver Printer ElectronJs
 
