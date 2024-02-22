@@ -13,7 +13,7 @@ Aplikasi Antrian merupakan perkembangan dari versi sebelumnya [aplikasi antrian 
 
 # Fitur Apilkasi
 
-Aplikasi Antrian ini terdiri dari 4 interface, yaitu **Nomor Antrian**, **Panggilan Antrian** **Monitor Antrian** dan **Setting Aplikasi Antrian**.
+Aplikasi Antrian ini terdiri dari 4 interface, yaitu **Nomor Antrian**, **Panggilan Antrian** **Monitor Antrian** dan **Setting Aplikasi Antrian**. Aplikasi antrian ini sepenuhnya realtime tanpa anda reload page dan tampilan yang responsive serta dinamis.
 
 ### 1. Nomor Antrian
 
@@ -29,7 +29,7 @@ Halaman monitor antrian digunakan untuk menampilkan dashboard antrian dan untuk 
 
 ### 3. Setting Aplikasi Antrian
 
-Halaman Setting Aplikasi Antrian untuk memudahkan dalam configurasi aplikasi seperti nama aplikasi, logo, loket, styling dashboard monitor antrian
+Halaman Setting Aplikasi Antrian untuk memudahkan dalam configurasi aplikasi seperti nama aplikasi, logo, loket, styling dashboard monitor antrian dan rekapitulasi antrian anda.
 
 # Cara Install
 

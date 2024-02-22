@@ -8,7 +8,7 @@ $list_type_antrian = json_decode($data['list_type_antrian'], true);
                 <img class="img-fluid d-block mx-auto" src="<?= $data['logo'] && file_exists('assets/img/' . $data['logo']) ? 'assets/img/' . $data['logo'] : 'assets/img/default.png' ?>" alt="Image" style="max-width: 50px;">
             </div>
             <div class="col-8 text-center text-white">
-                <h5><?= $data['nama_instansi'] ? $data['nama_instansi'] : ''; ?></h5>
+                <h5 class="fw-bold"><?= $data['nama_instansi'] ? $data['nama_instansi'] : ''; ?></h5>
                 <p class="fw-lighter lh-1 m-1">
                     <?= $data['alamat'] ? $data['alamat'] : ''; ?>
                     <br>
@@ -20,29 +20,31 @@ $list_type_antrian = json_decode($data['list_type_antrian'], true);
             </div>
         </div>
     </div>
-    <div style="height: 4vh;"></div>
+    <div style="height: 3vh;"></div>
     <div class="container">
-        <div class="row row-cols-<?= (count($list_type_antrian) <= 4) ? count($list_type_antrian) : 4 ?> justify-content-lg-center">
+        <div class="row row-cols-<?= (count($list_type_antrian) <= 3) ? count($list_type_antrian) : 3 ?> justify-content-lg-center">
             <?php if (count($list_type_antrian) > 0) : ?>
                 <?php foreach ($list_type_antrian as $lta) : ?>
                     <div class="col mb-4">
-                        <div class="px-2 py-1 mb-2 bg-white rounded-1 shadow-sm">
+                        <div class="bg-white text-center rounded-1 shadow-sm border border-success px-3 py-1 mb-2">
                             <!-- judul halaman -->
-                            <div class="d-flex align-items-center me-md-auto">
-                                <i class="bi-people-fill text-success me-3 fs-3"></i>
-                                <h3 class="h5 pt-2"><span class="fw-bold">ANTRIAN <?= $lta['type_antrian']; ?></span></h3>
+                            <i class="bi-people-fill text-success fs-5"></i>
+                            <div class="d-flex justify-content-center align-items-center me-md-auto">
+                                <h3 class="h5 fw-bold">
+                                    <?= strtoupper($lta['type_antrian']); ?>
+                                </h3>
                             </div>
                         </div>
 
-                        <div class="card border-0 shadow-sm">
+                        <div class="card border border-success shadow-sm">
                             <div class="card-body text-center d-grid">
-                                <div class="border border-success rounded-2 py-2 mb-2" style="min-height: 17vh; display:grid; place-items: center;">
+                                <div class="border rounded-1 mb-3" style="min-height: 17vh; display:grid; place-items: center;">
                                     <!-- menampilkan informasi jumlah antrian -->
-                                    <h2 id="antrian-<?= $lta['code_antrian'] ?>" class="display-1 fw-bold text-success text-center lh-1" style="font-family: Arial, Helvetica, sans-serif;"></h2>
+                                    <h2 id="antrian-<?= $lta['code_antrian'] ?>" class="display-1 fw-bold text-success text-center lh-1"></h2>
                                 </div>
                                 <!-- button pengambilan nomor antrian -->
                                 <a id="insert-<?= $lta['code_antrian'] ?>" data-code_antrian="<?= $lta['code_antrian']; ?>" href="javascript:void(0)" class="btn btn-success btn-block fs-5">
-                                    <i class="bi-person-plus fs-4 me-2"></i> Ambil
+                                    <i class="bi-person-plus fs-4 me-2"></i> AMBIL
                                 </a>
                             </div>
                         </div>

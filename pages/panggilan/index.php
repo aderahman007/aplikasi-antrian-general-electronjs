@@ -11,53 +11,21 @@ if (count($loket) > 0) {
 }
 ?>
 <main class="flex-shrink-0">
-    <div id="triggerClickTable"></div>
     <div class="container pt-4">
         <div class="d-flex flex-column flex-md-row px-3 py-2 mb-4 bg-white rounded-1 shadow-sm border border-success">
             <!-- judul halaman -->
             <div class="d-flex align-items-center me-md-auto">
                 <i class="bi-mic-fill text-success me-3 fs-3"></i>
-                <h1 class="h5 pt-2">Panggilan Antrian <span class="namaLoket"></span></h1>
+                <h1 class="fw-bold h5 pt-2">PANGGILAN ANTRIAN <span class="namaLoket"></span></h1>
             </div>
             <!-- breadcrumbs -->
             <div class="ms-5 ms-md-0 pt-md-3 pb-md-0">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/"><i class="bi-house-fill text-success"></i></a></li>
-                        <li class="breadcrumb-item" aria-current="page">Panggilan Antrian</li>
+                        <li class="breadcrumb-item text-muted" aria-current="page">Panggilan Antrian</li>
                     </ol>
                 </nav>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- menampilkan informasi jumlah antrian -->
-            <div class="col-md-3 mb-4">
-                <div class="card border-primary shadow-sm">
-                    <div class="card-header">Jumlah Antrian</div>
-                    <div class="card-body" id="jumlah-antrian-list"></div>
-                </div>
-            </div>
-            <!-- menampilkan informasi nomor antrian yang sedang dipanggil -->
-            <div class="col-md-3 mb-4">
-                <div class="card border-info shadow-sm">
-                    <div class="card-header">Antrian Sekarang</div>
-                    <div class="card-body" id="antrian-sekarang-list"></div>
-                </div>
-            </div>
-            <!-- menampilkan informasi nomor antrian yang akan dipanggil selanjutnya -->
-            <div class="col-md-3 mb-4">
-                <div class="card border-warning shadow-sm">
-                    <div class="card-header">Antrian Selanjutnya</div>
-                    <div class="card-body" id="antrian-selanjutnya-list"></div>
-                </div>
-            </div>
-            <!-- menampilkan informasi jumlah antrian yang belum dipanggil -->
-            <div class="col-md-3 mb-4">
-                <div class="card border-danger shadow-sm">
-                    <div class="card-header">Sisa Antrian</div>
-                    <div class="card-body" id="sisa-antrian-list"></div>
-                </div>
             </div>
         </div>
 

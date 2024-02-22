@@ -4,14 +4,14 @@
             <!-- judul halaman -->
             <div class="d-flex align-items-center me-md-auto">
                 <i class="bi-gear-fill text-success me-3 fs-3"></i>
-                <h1 class="h5 pt-2">Setting Aplikasi Antrian</h1>
+                <h1 class="fw-bold h5 pt-2">SETTING APLIKASI ANTRIAN</h1>
             </div>
             <!-- breadcrumbs -->
             <div class="ms-5 ms-md-0 pt-md-3 pb-md-0">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/"><i class="bi-house-fill text-success"></i></a></li>
-                        <li class="breadcrumb-item" aria-current="page">Setting Antrian</li>
+                        <li class="breadcrumb-item text-muted" aria-current="page">Setting Antrian</li>
                     </ol>
                 </nav>
             </div>
@@ -295,9 +295,18 @@
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center gap-2 mt-4">
-                            <button type="submit" class="btn btn-success"><i class="bi-save-fill text-white"></i> Simpan</button>
-                            <button type="button" id="reset_antrian" class="btn btn-secondary"><i class="bi-arrow-clockwise text-white"></i> Reset Antrian</button>
-                            <button type="button" id="logout" class="btn btn-danger"><i class="bi-box-arrow-right text-white"></i> Logout</button>
+                            <button type="submit" class="btn btn-sm btn-success">
+                                <i class="bi-save text-white"></i><br> Simpan
+                            </button>
+                            <button type="button" id="reset_antrian" class="btn btn-sm btn-secondary">
+                                <i class="bi-arrow-clockwise text-white"></i><br> Reset Antrian
+                            </button>
+                            <a href="index.php?pages=rekapitulasi" class="btn btn-sm btn-info">
+                                <i class="bi-file-earmark-pdf text-white"></i><br> Rekap Antrian
+                            </a>
+                            <button type="button" id="logout" class="btn btn-sm btn-danger">
+                                <i class="bi-box-arrow-right text-white"></i><br> Logout
+                            </button>
                         </div>
                     </div>
                 </div>

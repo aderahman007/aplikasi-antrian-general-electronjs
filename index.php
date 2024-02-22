@@ -52,12 +52,6 @@ if (isset($_GET['pages'])) {
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <?php
-    if (isset($css)) {
-        include 'pages/' . $url . '/' . $css;
-    }
-    ?>
 </head>
 
 <body class="d-flex flex-column h-100" <?= (($url == 'monitor') ? 'style="background-color:' . ($data["warna_background"] ? $data["warna_background"] : "#fffff") : '') . '"' ?>>
@@ -75,9 +69,16 @@ if (isset($_GET['pages'])) {
         case "monitor":
             include 'pages/monitor/index.php';
             break;
+        case "rekapitulasi":
+            include 'pages/rekapitulasi/index.php';
+            break;
         default:
             include 'main.php';
             break;
+    }
+
+    if (isset($css)) {
+        include 'pages/' . $url . '/' . $css;
     }
     ?>
 

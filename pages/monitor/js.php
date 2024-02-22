@@ -25,6 +25,10 @@
                         result.data.forEach(function(element, index) {
                             $('#code-antrian-' + element.code_antrian.toLowerCase()).html(element.code_antrian + element.no_antrian).fadeIn('slow');
                         });
+                    } else {
+                        $("[id^='code-antrian']").html('-');
+                        $("#antrian-sekarang").html('-');
+                        $(".namaLoketMonitor").html('-');
                     }
                 }
             }
@@ -100,7 +104,7 @@
                     if (!isPlay) {
                         isPlay = true;
                         $("#antrian-sekarang").html(value.antrian);
-                        $(".namaLoketMonitor").html(value.loket);
+                        $(".namaLoketMonitor").html(value.loket.toUpperCase());
                         // mainkan suara bell antrian
                         bell.currentTime = 0;
                         bell.pause();

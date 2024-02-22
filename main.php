@@ -17,7 +17,7 @@
         <div class="alert alert-light border border-success mb-3 mt-3" role="alert">
             <div class="text-center">
                 <img src="<?= $data['logo'] && file_exists('assets/img/' . $data['logo']) ? 'assets/img/' . $data['logo'] : 'assets/img/default.png' ?>" alt="Logo" width="60px" class="">
-                <h6 class="mt-2"><?= $data['nama_instansi'] ? $data['nama_instansi'] : ''; ?></h6>
+                <h4 class="mt-2 mb-0 fw-bold"><?= $data['nama_instansi'] ? $data['nama_instansi'] : ''; ?></h4>
                 <p>
                     <small>Silahkan pilih halaman yang ingin ditampilkan</small>
                 </p>
@@ -32,10 +32,10 @@
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-people"></i>
                         </div>
-                        <h4>Nomor Antrian</h4>
+                        <h4 class="fw-bold">NOMOR ANTRIAN</h4>
                         <p class="mb-3">Halaman Nomor Antrian digunakan pengunjung untuk mengambil nomor antrian.</p>
                         <a href="index.php?pages=nomor" class="btn btn-success px-4 py-2">
-                            Tampilkan <i class="bi-arrow-right ms-2"></i>
+                            TAMPILKAN <i class="bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>
@@ -47,10 +47,10 @@
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-mic"></i>
                         </div>
-                        <h4>Panggilan Antrian</h4>
+                        <h4 class="fw-bold">PANGGILAN ANTRIAN</h4>
                         <p class="mb-3">Halaman Panggilan Antrian digunakan petugas loket untuk memanggil antrian.</p>
                         <a href="javascript:;" class="btn btn-success px-4 py-2" data-bs-toggle="modal" data-bs-target="#panggilAntrian">
-                            Tampilkan <i class="bi-arrow-right ms-2"></i>
+                            TAMPILKAN <i class="bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>
@@ -65,10 +65,10 @@
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-display"></i>
                         </div>
-                        <h4>Monitor Antrian</h4>
+                        <h4 class="fw-bold">MONITOR ANTRIAN</h4>
                         <p class="mb-3">Halaman Monitor Antrian digunakan menampilkan antrian pada monitor.</p>
                         <a href="index.php?pages=monitor" class="btn btn-success px-4 py-2">
-                            Tampilkan <i class="bi-arrow-right ms-2"></i>
+                            TAMPILKAN <i class="bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>
@@ -80,10 +80,10 @@
                         <div class="feature-icon-3 bg-success bg-gradient mb-3">
                             <i class="bi-gear"></i>
                         </div>
-                        <h4>Setting Antrian</h4>
+                        <h4 class="fw-bold">SETTING ANTRIAN</h4>
                         <p class="mb-3">Halaman Setting Antrian digunakan untuk setting antrian.</p>
                         <a href="index.php?pages=setting" class="btn btn-success px-4 py-2">
-                            Tampilkan <i class="bi-arrow-right ms-2"></i>
+                            TAMPILKAN <i class="bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>

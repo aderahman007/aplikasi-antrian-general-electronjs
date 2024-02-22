@@ -13,85 +13,7 @@
 
         let listTypeAntrian = JSON.parse(list_type_antrian);
 
-        $(".namaLoket").html(loket.nama_loket);
-
-        // Jumlah antrian
-        let jumlahAntrianHtml = ``;
-        typeAntrian.forEach(function(element, index) {
-            let type = element.toLowerCase();
-            let indexTypeAntrianByCode = listTypeAntrian.map(object => object.code_antrian).indexOf(element);
-            jumlahAntrianHtml += `<div class="d-flex justify-content-between">
-                            <p class="mb-0"> <i class="bi bi-check2-circle text-success"></i> Antrian ` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + ` <span id="type-antrian-jumlah-` + type + `"></span></p>
-                            <span id="jumlah-antrian-` + type + `" class="fs-9 text-primary fw-bold">-</span>
-                        </div>`;
-        });
-        $('#jumlah-antrian-list').html(jumlahAntrianHtml);
-
-        // Antrian sekarang
-        let antrianSekarangHtml = ``;
-        typeAntrian.forEach(function(element, index) {
-            let type = element.toLowerCase();
-            let indexTypeAntrianByCode = listTypeAntrian.map(object => object.code_antrian).indexOf(element);
-            antrianSekarangHtml += `<div class="d-flex justify-content-between">
-                                <p class="mb-0"> <i class="bi bi-check2-circle text-success"></i> Antrian ` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + ` <span id="type-antrian-sekarang-` + type + `"></span></p>
-                                <span id="antrian-sekarang-` + type + `" class="fs-9 text-info fw-bold">-</span>
-                            </div>`;
-        });
-        $('#antrian-sekarang-list').html(antrianSekarangHtml);
-
-        // Antrian selanjutnya
-        let antrianSelanjutnyaHtml = ``;
-        typeAntrian.forEach(function(element, index) {
-            let type = element.toLowerCase();
-            let indexTypeAntrianByCode = listTypeAntrian.map(object => object.code_antrian).indexOf(element);
-            antrianSelanjutnyaHtml += `<div class="d-flex justify-content-between">
-                                <p class="mb-0"> <i class="bi bi-check2-circle text-success"></i> Antrian ` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + ` <span id="type-antrian-selanjutnya-` + type + `"></span></p>
-                                <span id="antrian-selanjutnya-` + type + `" class="fs-9 text-warning fw-bold">-</span>
-                            </div>`;
-        });
-        $('#antrian-selanjutnya-list').html(antrianSelanjutnyaHtml);
-
-        // Sisa Antrian
-        let sisaAntrianHtml = ``;
-        typeAntrian.forEach(function(element, index) {
-            let type = element.toLowerCase();
-            let indexTypeAntrianByCode = listTypeAntrian.map(object => object.code_antrian).indexOf(element);
-            sisaAntrianHtml += `<div class="d-flex justify-content-between">
-                                <p class="mb-0"> <i class="bi bi-check2-circle text-success"></i> Antrian ` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + ` <span id="type-sisa-antrian-` + type + `"></span></p>
-                                <span id="sisa-antrian-` + type + `" class="fs-9 text-danger fw-bold">-</span>
-                            </div>`;
-        });
-        $('#sisa-antrian-list').html(sisaAntrianHtml);
-
-        // Table panggilan
-        let numOfCols = (typeAntrian.length <= 4) ? typeAntrian.length : 4;
-        $("#table-panggilan").addClass("row-cols-" + numOfCols);
-        let tablePanggilanHtml = ``;
-        typeAntrian.forEach(function(element, index) {
-            let type = element.toLowerCase();
-            let indexTypeAntrianByCode = listTypeAntrian.map(object => object.code_antrian).indexOf(element);
-            tablePanggilanHtml += `<div class="col mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header text-center fw-bold">
-                        <h4 class="fw-bold">` + listTypeAntrian[indexTypeAntrianByCode].type_antrian + `</h4>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="table-responsive">
-                            <table id="tabel-antrian-` + type + `" class="table table-bordered table-striped table-hover" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>Nomor Antrian</th>
-                                        <th>Status</th>
-                                        <th>Panggil</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-        });
-        $('#table-panggilan').html(tablePanggilanHtml);
+        $(".namaLoket").html(loket.nama_loket.toUpperCase());
 
         const get_actions = () => {
             // Get jumlah antrian
@@ -110,6 +32,36 @@
                             result.data.forEach(function(element, index) {
                                 $('#jumlah-antrian-' + element.code_antrian.toLowerCase()).html(element.jumlah);
                             });
+                        } else {
+                            $("[id^='jumlah-antrian']").html('-');
+                        }
+                    }
+                }
+            });
+
+            // Get sisa antrian
+            $.ajax({
+                url: 'pages/panggilan/action.php',
+                method: 'GET',
+                data: {
+                    type: 'get_sisa_antrian'
+                },
+                async: false,
+                cache: false,
+                dataType: 'json',
+                success: function(result) {
+                    if (result.success == true) {
+                        if (result.data.length > 0) {
+                            typeAntrian.forEach(function(elemenType, indexType) {
+                                $('#sisa-antrian-' + elemenType.toLowerCase()).html('-');
+                                result.data.forEach(function(element, index) {
+                                    if (elemenType === element.code_antrian) {
+                                        $('#sisa-antrian-' + element.code_antrian.toLowerCase()).html(element.jumlah);
+                                    }
+                                });
+                            });
+                        } else {
+                            $("[id^='sisa-antrian']").html('-');
                         }
                     }
                 }
@@ -129,8 +81,11 @@
                     if (result.success == true) {
                         if (result.data.length > 0) {
                             result.data.forEach(function(element, index) {
-                                $('#antrian-sekarang-' + element.code_antrian.toLowerCase()).html(element.code_antrian + element.no_antrian);
+                                $('.antrian-sekarang-' + element.code_antrian.toLowerCase()).html(element.code_antrian + element.no_antrian);
+                                $('.antrian-sekarang-' + element.code_antrian.toLowerCase()).parent().data('panggil_antrian', JSON.stringify(element));
                             });
+                        } else {
+                            $("[class*='antrian-sekarang']").html('-');
                         }
                     }
                 }
@@ -148,99 +103,101 @@
                 dataType: 'json',
                 success: function(result) {
                     if (result.success == true) {
-                        if (result.data.length > 0) {
-                            result.data.forEach(function(element, index) {
-                                $('#antrian-selanjutnya-' + element.code_antrian.toLowerCase()).html(element.code_antrian + element.no_antrian);
-                            });
-                        }
-                    }
-                }
-            });
+                        if (result.data.length > 0 && typeAntrian.length > 0) {
+                            typeAntrian.forEach(function(elemenType, indexType) {
+                                $('#antrian-selanjutnya-' + elemenType.toLowerCase().toLowerCase()).html('-');
+                                $('#antrian-selanjutnya-' + elemenType.toLowerCase().toLowerCase()).parent().data('panggil_antrian', '');
 
-            // Get sisa antrian
-            $.ajax({
-                url: 'pages/panggilan/action.php',
-                method: 'GET',
-                data: {
-                    type: 'get_sisa_antrian'
-                },
-                async: false,
-                cache: false,
-                dataType: 'json',
-                success: function(result) {
-                    if (result.success == true) {
-                        if (result.data.length > 0) {
-                            result.data.forEach(function(element, index) {
-                                $('#sisa-antrian-' + element.code_antrian.toLowerCase()).html(element.jumlah);
+                                result.data.forEach(function(element, index) {
+                                    if (elemenType === element.code_antrian) {
+                                        $('#antrian-selanjutnya-' + element.code_antrian.toLowerCase()).html(element.code_antrian + element.no_antrian);
+                                        $('#antrian-selanjutnya-' + element.code_antrian.toLowerCase()).parent().data('panggil_antrian', JSON.stringify(element));
+                                    }
+                                });
                             });
+
+                        } else {
+                            $("[id^='antrian-selanjutnya']").html('-');
                         }
                     }
                 }
             });
         }
 
-        // menampilkan data antrian menggunakan DataTables
-        $(document).on('click', '#triggerClickTable', function(e) {
-            typeAntrian.forEach(function(element, index) {
-                table[element.toLowerCase()] = $('#tabel-antrian-' + element.toLowerCase()).DataTable({
-                    "lengthChange": false, // non-aktifkan fitur "lengthChange"
-                    "searching": false, // non-aktifkan fitur "Search"
-                    "bInfo": false,
-                    "ajax": "pages/panggilan/action.php?type=list_antrian&type_antrian=" + element, // url file proses tampil data dari database
-                    // menampilkan data,
-                    "columns": [{
-                            "data": "no_antrian",
-                            "width": '200px',
-                            "orderable": false,
-                            "searchable": false,
-                            "className": 'text-center',
-                            render: function(data) {
-                                return '<b>' + data + '</b>'
-                            }
-                        },
-                        {
-                            "data": "status",
-                            "visible": false
-                        },
-                        {
-                            "data": null,
-                            "orderable": false,
-                            "searchable": false,
-                            "width": '100px',
-                            "className": 'text-center',
-                            "render": function(data, type, row) {
-                                // jika tidak ada data "status"
-                                if (data["status"] === "") {
-                                    // sembunyikan button panggil
-                                    var btn = "-";
-                                }
-                                // jika data "status = 0"
-                                else if (data["status"] === "0") {
-                                    // tampilkan button panggil
-                                    var btn = "<button class=\"btn btn-success btn-sm rounded-circle\"><i class=\"bi-mic-fill\"></i></button>";
-                                }
-                                // jika data "status = 1"
-                                else if (data["status"] === "1") {
-                                    // tampilkan button ulangi panggilan
-                                    var btn = "<button class=\"btn btn-secondary btn-sm rounded-circle\"><i class=\"bi-mic-fill\"></i></button>";
-                                };
-                                return btn;
-                            }
-                        },
-                    ],
-                    "order": [
-                        [0, "desc"] // urutkan data berdasarkan "no_antrian" secara descending
-                    ],
-                    "iDisplayLength": 10, // tampilkan 10 data per halaman
-                });
+        // Jumlah antrian
+        let panggilAntrianHtml = ``;
+        typeAntrian.forEach(function(element, index) {
+            let type = element.toLowerCase();
+            let indexTypeAntrianByCode = listTypeAntrian.map(object => object.code_antrian).indexOf(element);
+            panggilAntrianHtml += `<div class="col mb-4" id="tabel-antrian-${type}">
+                <div class="card border border-success shadow-sm">
+                    <div class="card-header text-center fw-bold">
+                        <h4 class="fw-bold m-0">${listTypeAntrian[indexTypeAntrianByCode].type_antrian}</h4>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="border p-2 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <p class="text-muted fs-6 mb-0">
+                                    <i class="bi bi-check2-circle text-success"></i>
+                                    JUMLAH ANTRIAN
+                                    <span id="type-antrian-jumlah-${type}"></span>
+                                </p>
+                                <span id="jumlah-antrian-${type}" class="fs-6 text-success fw-bold">-</span>
+                            </div>
+                            <hr class="border border-success my-2">
+                            <div class="d-flex justify-content-between">
+                                <p class="text-muted fs-6 mb-0">
+                                    <i class="bi bi-check2-circle text-danger"></i>
+                                    SISA ANTRIAN
+                                    <span id="type-antrian-sisa-${type}"></span>
+                                </p>
+                                <span id="sisa-antrian-${type}" class="fs-6 text-danger fw-bold">-</span>
+                            </div>
+                        </div>
+                        <div class="border p-2 mb-2">
+                            <div class="text-center">
+                                <h6 class="fw-bold text-muted">NOMOR ANTRIAN SEKARANG</h6>
+                                <h1 class="display-6 fw-bold text-success text-center lh-1 m-0 antrian-sekarang-${type}">-</h1>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between gap-2">
+                            <div class="border w-100 p-2">
+                                <div class="text-center">
+                                    <h6 class="fw-bold text-muted">PANGGIL LAGI</h6>
+                                    <button class="btn btn-secondary btn-lg fw-bold" data-panggil_antrian="">
+                                        <i class="bi-mic-fill me-2"></i> 
+                                        <span class="antrian-sekarang-${type}">-</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="border w-100 p-2">
+                                <div class="text-center">
+                                    <h6 class="fw-bold text-muted">SELANJUTNYA</h6>
+                                    <button class="btn btn-success btn-lg fw-bold" data-panggil_antrian="">
+                                        <i class="bi-mic-fill me-2"></i>
+                                        <span id="antrian-selanjutnya-${type}">-</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        });
+        $('#table-panggilan').html(panggilAntrianHtml);
 
-                // panggilan antrian dan update data
-                $('#tabel-antrian-' + element.toLowerCase() + ' tbody').on('click', 'button', function() {
-                    // ambil data dari datatables 
-                    var data = table[element.toLowerCase()].row($(this).parents('tr')).data();
-                    // buat variabel untuk menampilkan data "id"
-                    var id = data["id"];
+        get_actions();
 
+        typeAntrian.forEach(function(element, index) {
+            // panggilan antrian dan update data
+            $('#tabel-antrian-' + element.toLowerCase()).on('click', 'button', function() {
+                // ambil data dari datatables 
+                let getData = $(this).data('panggil_antrian');
+                let data = (getData.length > 0) ? JSON.parse(getData) : null;
+                // buat variabel untuk menampilkan data "id"
+                let id = (data !== null && typeof data !== 'undefined') ? data["id"] : "";
+
+                if (id !== '') {
                     // proses create panggilan antrian
                     $.ajax({
                         url: "pages/panggilan/action.php", // url file proses update data
@@ -249,7 +206,7 @@
                         dataType: 'json',
                         data: {
                             type: 'create_panggilan',
-                            antrian: data["no_antrian"],
+                            antrian: data['code_antrian'] + data["no_antrian"],
                             loket: loket.nama_loket
                         },
                         async: false,
@@ -275,19 +232,13 @@
                             console.log(data);
                         }
                     });
-                });
+                }
             });
         });
 
-        $('#triggerClickTable').trigger('click');
-
-        get_actions();
         // auto reload data antrian setiap 1 detik untuk menampilkan data secara realtime
         setInterval(function() {
             get_actions();
-            typeAntrian.forEach(function(element, index) {
-                table[element.toLowerCase()].ajax.reload(null, false);
-            });
         }, 1000);
     });
 </script>
