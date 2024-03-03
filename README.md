@@ -17,8 +17,7 @@ Aplikasi Antrian ini terdiri dari 4 interface, yaitu **Nomor Antrian**, **Panggi
 
 ### 1. Nomor Antrian
 
-Halaman Nomor Antrian digunakan pengunjung untuk mengambil nomor antrian. Fitur ini bisa Kamu kembangkan lagi dengan menambahkan fungsi cetak nomor antrian secara langsung ke printer POS 88Cm.
-
+Halaman Nomor Antrian digunakan pengunjung untuk mengambil nomor antrian. Fitur ini bisa Kamu kembangkan lagi, by default aplikasi antrian ini menggunakan driver [driver printer electronjs](https://github.com/aderahman007/driver-printer-electronjs) kamu dapat mengubah desain struk atau dapat berkontribusi dalam driver ini agar dapat lebih baik dan bermanfaat untuk orang banyak.
 ### 2. Panggilan Antrian
 
 Halaman Panggilan Antrian digunakan petugas loket untuk memanggil antrian pengunjung. Halaman ini menampilkan informasi jumlah antrian, nomor antrian yang sedang dipanggil nomor antrian selanjutnya yang akan dipanggil, sisa antrian yang belum dipanggil. Petugas loket dapat menekan tombol panggilan antrian pada layar untuk memanggil antrian dengan menggunakan suara yang bisa dihubungkan dengan alat pengeras suara.
@@ -47,11 +46,11 @@ Halaman Setting Aplikasi Antrian untuk memudahkan dalam configurasi aplikasi sep
 - Copy dan Paste file env.copy.php kemudian rename menjadi env.php dan ubah konfigurasi sesuai dengan konfigurasi server pada file
 - Akses aplikasi antrian
 - Sesuaikan konfigurasi pada menu setting antrian
-- Login default static Setting Aplikasi Antrian
-  Username : superadmin
-  Password : superadmin@123
+- Login default static Setting Aplikasi Antrian  
+  Username : superadmin  
+  Password : superadmin@123  
 
-### RestAPi Get Antrian Cross Platform
+### RestAPI Get Antrian Cross Platform
 
 Jika proses ambil antrian include pada aplikasi lain seperti anjungan, maka dapat merujuk pada url berikut dengan method POST
 
@@ -83,6 +82,7 @@ Request Body
     code_antrian: <code_antrian>
 }
 ```
+code_antrian di dapat dari endpoint #List type antrian
 
 # Configure Driver Printer ElectronJs
 
@@ -93,4 +93,9 @@ Driver printer electronJs dapat merujuk pada [driver printer electronjs](https:/
 Donation to give me a Gift   
 Saweria : https://saweria.co/aderahman007
 
+Follow me :  
+**Instagram** : [@aderahman_007](https://www.instagram.com/aderahman_007) || [@adeofficial007](https://www.instagram.com/adeofficial007)
+
 #### Script MIT Lisence
+Aplikasi ini bersifat **Open Source** siapa pun dapat menggunakan, mengembangkan dan berkontribusi.
+Dilarang keras untuk memperjual belikan/mengambil keuntungan dari aplikasi ini dalam bentuk apapun tanpa seizin Developper.
