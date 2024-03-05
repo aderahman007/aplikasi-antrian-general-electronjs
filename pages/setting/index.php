@@ -83,7 +83,7 @@
                                                             <?php if ($key_lk == 0) : ?>
                                                                 <label class="form-label">Kode Antrian</label>
                                                             <?php endif ?>
-                                                            <input type="text" class="form-control" name="code_antrian[]" placeholder="Kode Antrian" value="<?= $val_lk['code_antrian'] ? $val_lk['code_antrian'] : ''; ?>" required>
+                                                            <input type="text" class="form-control" name="code_antrian[]" placeholder="Kode Antrian" value="<?= $val_lk['code_antrian'] != '' ? $val_lk['code_antrian'] : ''; ?>" required>
                                                         </div>
                                                     </div>
                                                 </div>

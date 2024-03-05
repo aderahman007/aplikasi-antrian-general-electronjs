@@ -1,7 +1,7 @@
 <script type="text/javascript">
     let optionLoket = ``;
     parseTypeAntrian.forEach(function(item, index) {
-        optionLoket += `<option value="` + item.type_antrian + `">` + item.code_antrian + `</option>`;
+        optionLoket += `<option value="` + item.type_antrian + `">` + item.type_antrian + `</option>`;
     });
 
     var totalLoket = 0;
