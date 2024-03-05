@@ -32,7 +32,7 @@ if (isset($_GET['pages'])) {
     <meta name="author" content="Ade Rahman">
 
     <!-- Title -->
-    <title>Aplikasi Antrian General Static</title>
+    <title>Aplikasi Antrian General ElectronJs</title>
 
     <!-- Favicon icon -->
     <link href="assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon">
