@@ -229,14 +229,27 @@
                             <div class="card-body">
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-2">
+                                        <label class="form-label">Type Printer</label>
+                                        <select name="type_printer" class="form-control" id="type_printer">
+                                            <option value="local" <?= (!empty($printer['type_printer']) && $printer['type_printer'] == 'local') ? 'selected' : ''; ?>>Local</option>
+                                            <option value="network" <?= (!empty($printer['type_printer']) && $printer['type_printer'] == 'network') ? 'selected' : ''; ?>>Network</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-5">
                                         <label class="form-label">IP Komputer Printer</label>
                                         <input type="text" class="form-control" name="ip_komputer_printer" value="<?= (!empty($printer['ip_komputer_printer'])) ? $printer['ip_komputer_printer'] : ''; ?>" placeholder="Ip Komputer Printer" required>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-5">
                                         <label class="form-label">Port Komputer Printer <sub class="text-info">Default Port 3000</sub></label>
                                         <input type="text" class="form-control" name="port_komputer_printer" value="<?= (!empty($printer['port_komputer_printer'])) ? $printer['port_komputer_printer'] : ''; ?>" placeholder="Port Komputer Printer" required>
                                     </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <small class="text-info"><strong>Note: </strong><br>
+                                        1. Type printer <b>Local</b> adalah kondisi komputer printer dalam satu jaringan dengan server aplikasi antrian. <br>
+                                        2. Type printer <b>Network</b> adalah kondisi dimana komputer printer dengan server aplikasi antrian (Exp. Aplikasi antrian berada di hosting/vps/mengguankan ip public). <br>
+                                        3. Jika type printer yang dipilih <b>Local</b> maka pada <b>Ip Komputer Printer</b> dapat diisi dengan <b>127.0.0.1</b> dan <b>Port Komputer Printer</b> dapat diisi dengan <b>3000</b>.</small>
                                 </div>
                             </div>
                         </div>

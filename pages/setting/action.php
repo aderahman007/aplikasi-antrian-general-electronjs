@@ -26,10 +26,12 @@ if (isset($_POST['type'])) {
                 $warna_background = $_POST['warna_background'];
                 $warna_text = $_POST['warna_text'];
 
+                $type_printer = $_POST['type_printer'];
                 $ip_komputer_printer = $_POST['ip_komputer_printer'];
                 $port_komputer_printer = $_POST['port_komputer_printer'];
 
                 $printer = json_encode([
+                    'type_printer' => $type_printer,
                     'ip_komputer_printer' => $ip_komputer_printer,
                     'port_komputer_printer' => $port_komputer_printer
                 ]);

@@ -60,7 +60,8 @@ class query extends database
 
     public function updateAntrian($id)
     {
-        $query = mysqli_query($this->mysqli, "UPDATE queue_antrian_admisi SET status='1', updated_date='$this->tanggal' WHERE id='$id'") or die('Ada kesalahan pada query update : ' . mysqli_error($this->mysqli));
+        $updated_date = gmdate("Y-m-d H:i:s", time() + 60 * 60 * 7);
+        $query = mysqli_query($this->mysqli, "UPDATE queue_antrian_admisi SET status='1', updated_date='$updated_date' WHERE id='$id'") or die('Ada kesalahan pada query update : ' . mysqli_error($this->mysqli));
         return $query;
     }
 
@@ -109,6 +110,23 @@ class query extends database
     public function resetAntrian()
     {
         mysqli_query($this->mysqli, "DELETE FROM queue_antrian_admisi WHERE tanggal='$this->tanggal'") or die('Ada kesalahan pada query delete data : ' . mysqli_error($this->mysqli));
+        return mysqli_affected_rows($this->mysqli);
+    }
+
+    public function getAntrianPrinter()
+    {
+        $query = mysqli_query($this->mysqli, "SELECT id, no_antrian, code_antrian FROM queue_printer ORDER BY id ASC") or die('Ada kesalahan pada query tampil data : ' . mysqli_error($this->mysqli));
+        return $query;
+    }
+
+    public function createAntrianPrinter($no_antrian, $code_antrian){
+        $query = mysqli_query($this->mysqli, "INSERT INTO queue_printer(no_antrian, code_antrian) VALUES('$no_antrian', '$code_antrian')") or die('Ada kesalahan pada query insert: ' . mysqli_error($this->mysqli));
+        return $query;
+    }
+
+    public function deleteAntrianPrinter($id)
+    {
+        mysqli_query($this->mysqli, "DELETE FROM queue_printer WHERE id='$id'") or die('Ada kesalahan pada query delete data : ' . mysqli_error($this->mysqli));
         return mysqli_affected_rows($this->mysqli);
     }
 }
