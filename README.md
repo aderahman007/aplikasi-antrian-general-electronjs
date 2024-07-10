@@ -98,6 +98,23 @@ Request Body
 }
 ```
 
+#### Get no antrian terakhir by code antrian
+
+Url
+```
+<ip_server>/pages/nomor/action.php
+```
+
+Request Body
+```
+{
+    type: 'get_antrian_by_type',
+    code_antrian: <code_antrian>
+}
+```
+code_antrian di dapat dari endpoint #List type antrian
+
+
 # Configure Driver Printer ElectronJs
 
 Driver printer electronJs dapat merujuk pada [driver printer electronjs](https://github.com/aderahman007/driver-printer-electronjs)

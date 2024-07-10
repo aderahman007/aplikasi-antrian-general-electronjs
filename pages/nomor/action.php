@@ -36,6 +36,25 @@ if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD'] == 'POST' |
             ]);
         }
 
+        if ($_POST['type'] == 'get_antrian_by_type') {
+            // sql statement untuk menampilkan jumlah data dari tabel "queue_antrian_admisi" berdasarkan "tanggal"
+            $code_antrian = $_POST['code_antrian'];
+            $query = $action->getLastAntrianByType($code_antrian);
+            // ambil data hasil query
+            // Inisialisasi array untuk menyimpan data
+            $dataAntrian = array();
+
+            // Ambil hasil query dan masukkan ke dalam array
+            $result = mysqli_fetch_assoc($query);
+
+            // tampilkan data
+            echo json_encode([
+                'success' => true,
+                'message' => 'Success',
+                'data' => $result['no_antrian']
+            ]);
+        }
+
         if ($_POST['type'] == 'create_antrian') {
             require 'cetak.php';
             $code_antrian = $_POST['code_antrian'];
